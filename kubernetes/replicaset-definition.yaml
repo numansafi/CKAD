@@ -1,0 +1,25 @@
+apiVersion: app/v1
+kind: ReplicaSet
+metadata:
+  name: nginx-app-replicaset
+spec:
+  replicas: 3
+  selector:
+    # Must be same as in the POD template label
+    app: nginx-app
+  template:
+    ############  Pod definition Starts ############
+    metadata:
+      name: nginx-app
+      labels:
+        # Pod template label
+        name: nginx-app
+    spec:
+      containers:
+        - name: nginx-app
+          image: nginx
+          resources:
+            limits:
+              memory: "128Mi"
+              cpu: "500m"
+      #############  Pod definition Ends ############
