@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-deployment
+  labels:
+    app: nginx-app
+    tier: frontend
+spec:
+  replicas: 3
+  selector:
+    # Must be same as in the POD template label
+    matchLabels:
+      app: nginx-app
+  template:
+    ############  Pod definition Starts ############
+    metadata:
+      name: nginx-app
+      labels:
+        # Pod template label
+        app: nginx-app
+    spec:
+      containers:
+        - name: nginx-app
+          image: nginx:1.18
+          resources:
+            limits:
+              memory: "128Mi"
+              cpu: "500m"
