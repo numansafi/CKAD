@@ -1,7 +1,10 @@
 apiVersion: apps/v1
-kind: ReplicaSet
+kind: Deployment
 metadata:
-  name: nginx-app-replicaset
+  name: nginx-deployment
+  labels:
+    app: nginx-app
+    tier: frontend
 spec:
   replicas: 3
   selector:
@@ -23,4 +26,3 @@ spec:
             limits:
               memory: "128Mi"
               cpu: "500m"
-      #############  Pod definition Ends ############
