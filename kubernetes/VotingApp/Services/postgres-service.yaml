@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata:
+  # Name = db as specified within the code
+  name: db
+  labels:
+    name: postgres-service
+    app: demo-voting-app
+spec:
+  # Type not specified as it defaults to ClusterIP
+  selector:
+    name: postgres-pod
+    app: demo-voting-app
+  ports:
+    - port: 5432
+      targetPort: 5432
