@@ -6,7 +6,7 @@ metadata:
     name: worker-app-deployment
     app: demo-voting-app
 spec:
-  replicas: 1
+  replicas: 3
   selector:
     matchLabels:
       name: worker-app-pod
@@ -21,7 +21,7 @@ spec:
     spec:
       containers:
         - name: worker-app
-          image: kodekloud/examplevotingapp_worker:v1
+          image: dockersamples/examplevotingapp_worker
           resources:
             limits:
               memory: "128Mi"
