@@ -6,8 +6,8 @@ metadata:
     name: voting-service
     app: demo-voting-app
 spec:
-  # Need to be externally accessible, so type = "NodePort"
-  type: NodePort
+  # Need to be externally accessible, so type = "LoadBalancer"
+  type: LoadBalancer
   selector:
     name: voting-app-pod
     app: demo-voting-app
