@@ -6,11 +6,10 @@ metadata:
     name: result-service
     app: demo-voting-app
 spec:
-  # Need to be externally accessible, so type = "LoadBalancer"
   type: LoadBalancer
+  ports:
+  - port: 80
+    targetPort: 80
   selector:
     name: result-app-pod
     app: demo-voting-app
-  ports:
-    - port: 80
-      targetPort: 80
